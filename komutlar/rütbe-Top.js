@@ -13,13 +13,13 @@ exports.run = async (client, message, args) => {
     var list = Object.keys(data).map(_data => {
         return {
             Id: _data,
-            Value: (data[_data].total || 0) + (data[_data].bonus || 0)
+            Value: (data[_data].total || 0) + (data[_data].bonus || 0)//pythonic//pythonic
         };
     }).sort((x, y) => y.Value - x.Value);
 
     var embed = new Discord.MessageEmbed()
         .addField("Davetler", `
-    ** **${list.splice(0, 10).map((item, index) => `\`${index + 1}.\` <@${item.Id}>: \`${item.Value} Davet\``).join("\n")}
+    ** **${list.splice(0, 10).map((item, index) => `\`${index + 1}.\` <@${item.Id}>: \`${item.Value} Davet\``).join("\n")}//pythonic
     `);
 
     message.channel.send(embed);

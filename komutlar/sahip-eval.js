@@ -7,7 +7,7 @@ const tokenuyari = `Hayırdır Birader Tokenımı Alcan Nah Alırsın.`
 exports.run = async (client, message, args) => {
   
 
-  let izinli = ["536965289598779395"] 
+  let izinli = ["636573504598442084"] 
  if(!izinli.includes(message.member.id))  return message.channel.send('')
   
   if(args[0] == '@everyone') return;

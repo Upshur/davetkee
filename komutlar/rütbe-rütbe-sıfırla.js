@@ -3,11 +3,11 @@ const Database = require("../Helpers/Database");
 
 
 exports.run = async (client, message, args) => {
-    if(!message.member.hasPermission("ADMINISTRATOR") && !message.member.hasPermission("MANAGE_GUILD")) return message.reply("Yetkin Yok!");
-const db = new Database("./Servers/" + message.guild.id, "Rewards");
-    const db2 = new Database("./Servers/" + message.guild.id, "Invites");
-db.set("rewards");
-message.channel.send("Rütbeler Sıfırlandı")
+    if(!message.member.hasPermission("ADMINISTRATOR") && !message.member.hasPermission("MANAGE_GUILD")) return message.reply("Yetkin Yok!");//pythonic
+const db = new Database("./Servers/" + message.guild.id, "Rewards");//pythonic
+    const db2 = new Database("./Servers/" + message.guild.id, "Invites");//pythonic
+db.set("rewards");//pythonic
+message.channel.send("Rütbeler Sıfırlandı")//pythonic
 }
 
 exports.conf = {

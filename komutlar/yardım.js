@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
     .setTitle(`${message.author.username} - Tarafından İstendi`)
       .setColor("GREEN")
   .setAuthor(client.user.username, client.user.avatarURL())
-  .setDescription(`**Davet Komutları: ➕ \n Ana Menü: 💡**`)
+  .setDescription(`**Davet Komutları: ➕ \n Ana Menü: 💡** \n Selamlar, bu bot PYTHONIC tarafından paylaşıldı. Lütfen abone ol, iyi kullanmalar :D`)
   .setImage("https://images-ext-1.discordapp.net/external/Bb032GyJs8yCJiUy7tWQ-YnNRPreLuPDo-xp66eOIeU/https/images-ext-2.discordapp.net/external/H1PQhcDr-EaEvwENT8cUxj8S2yonFZl351YbXXH5sGs/https/media.discordapp.net/attachments/697145772801785876/716671769355747348/1.gif")
  var menü = await message.channel.send(yardım)
  const collector = menü.createReactionCollector(filter, { time: 99999 });

@@ -7,16 +7,16 @@ const Database = require("../Helpers/Database");
  * @param {Array<String>} args 
  */
 exports.run = async (client, message, args) => {
-    if(!message.member.hasPermission("ADMINISTRATOR") && !message.member.hasPermission("MANAGE_GUILD")) return message.reply("Yetkin Yok!");
+    if(!message.member.hasPermission("ADMINISTRATOR") && !message.member.hasPermission("MANAGE_GUILD")) return message.reply("Yetkin Yok!");//pythonic
 
     
     var roleId = message.mentions.roles.first(), targetInvite = Number(args[1]);
   /*  if(!message.guild.roles.cache.has(roleId)) return message.reply("no such role.");*/
-    if(isNaN(targetInvite)) return message.reply("Bir Numara Gir");
+    if(isNaN(targetInvite)) return message.reply("Bir Numara Gir");//pythonic
 
-    const db = new Database("./Servers/" + message.guild.id, "Rewards");
+    const db = new Database("./Servers/" + message.guild.id, "Rewards");//pythonic
 
-    var rewards = db.get("rewards") || [];
+    var rewards = db.get("rewards") || [];//pythonic
     rewards.push({
         Id: roleId.id,
         Invite: targetInvite
@@ -24,7 +24,7 @@ exports.run = async (client, message, args) => {
 
     db.set("rewards", rewards);
 const embed = new Discord.MessageEmbed()
-.setDescription(`**${roleId} Rolünü Ulaşabilmek İçin Toplam ${targetInvite} Davet Yapmaları Gerekmektedir.**`)
+.setDescription(`**${roleId} Rolünü Ulaşabilmek İçin Toplam ${targetInvite} Davet Yapmaları Gerekmektedir.**`)//pythonic
 message.channel.send(embed)
 };
 

@@ -7,9 +7,9 @@ const Database = require("../Helpers/Database");
  * @param {Array<String>} args 
  */
 exports.run = async (client, message, args) => {
-	  const db = new Database("./Servers/" + message.guild.id, "Settings");
-    if(!message.member.hasPermission("ADMINISTRATOR") && !message.member.hasPermission("MANAGE_GUILD")) return message.reply("Yetkiniz Bulunmamaktadır.")
-        let kanal = message.mentions.channels.first()
+	  const db = new Database("./Servers/" + message.guild.id, "Settings");//pythonic
+    if(!message.member.hasPermission("ADMINISTRATOR") && !message.member.hasPermission("MANAGE_GUILD")) return message.reply("Yetkiniz Bulunmamaktadır.")//pythonic
+        let kanal = message.mentions.channels.first()//pythonic
     if(kanal){
     var type = ["Channel"];
     db.set(`settings.${type}`, kanal.id);
