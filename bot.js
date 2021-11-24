@@ -134,4 +134,9 @@ client.login(ayarlar.token).then(
   }
 );
 
-
+///ototag
+client.on("guildMemberAdd", member => {
+  var tag = require('quick.db').fetch(`ototag_${member.guild.id}`)
+  if(!tag) return;
+  member.setNickname(`${tag}${member.user.username}`)
+  })
