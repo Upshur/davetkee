@@ -296,10 +296,67 @@ client.on('guildMemberAdd',async member => {
       kanal.send(attachment)
   });
 
+///afk
+
+client.on("message" , async msg => {
+  
+  if(!msg.guild) return;
+  if(msg.content.startsWith(ayarlar.prefix+"afk")) return; 
+  
+  let afk = msg.mentions.users.first()
+  
+  const kisi = db.fetch(`afkid_${msg.author.id}_${msg.guild.id}`)
+  
+  const isim = db.fetch(`afkAd_${msg.author.id}_${msg.guild.id}`)
+ if(afk){
+   const sebep = db.fetch(`afkSebep_${afk.id}_${msg.guild.id}`)
+   const kisi3 = db.fetch(`afkid_${afk.id}_${msg.guild.id}`)
+   if(msg.content.includes(kisi3)){
+
+       msg.reply(`Etiketlediğiniz Kişi Afk \nSebep : ${sebep}`)
+   }
+ }
+  if(msg.author.id === kisi){
+
+       msg.reply(`Afk'lıktan Çıktınız`)
+   db.delete(`afkSebep_${msg.author.id}_${msg.guild.id}`)
+   db.delete(`afkid_${msg.author.id}_${msg.guild.id}`)
+   db.delete(`afkAd_${msg.author.id}_${msg.guild.id}`)
+    msg.member.setNickname(isim)
+    
+  }
+  
+});
 
 
+///eklendim-atıldım
 
 
+client.on("guildCreate", async function(guild) {
+const owner = client.users.cache.get(guild.ownerID)
+const kanal = "913415673085038632" //Eklendim mesajının atılacağı kanal ID'sini giriniz.
+const ottoman = new Discord.MessageEmbed()
+.setTitle(`Yeni bir sunucuya eklendim`)
+.setColor("BLACK")
+.addField(`Sunucu Adı`, guild.name)
+.addField(`Sunucu Sahibi`, owner.username + "#" +owner.discriminator)
+.addField(`Sunucu Üye Sayısı`, guild.memberCount)
+client.channels.cache.get(kanal).send({embed: ottoman}).catch(err => console.log("Kanala mesaj atamıyorum!"))
+})
+//
+  
+//Atıldım
+client.on("guildDelete", async function(guild) {
+const owner = client.users.cache.get(guild.ownerID)
+const kanal = "913415821118820402" //Atıldım mesajının atılacağı kanal ID'sini giriniz.
+const ottoman = new Discord.MessageEmbed()
+.setTitle(`Bir sunucudan atıldım`)
+.setColor("BLACK")
+.addField(`Sunucu Adı`, guild.name)
+.addField(`Sunucu Sahibi`, owner.username + "#" + owner.discriminator)
+.addField(`Sunucu Üye Sayısı`, guild.memberCount)
+client.channels.cache.get(kanal).send({embed: ottoman}).catch(err => console.log("Kanala mesaj atamıyorum!"))
+})
 
 
 
