@@ -19,6 +19,7 @@ dependencies:
   passport: 0.4.1
   passport-oauth2: 1.5.0
   quick.db: 7.1.3
+  random-anime: 1.0.6
   simple-youtube-api: 5.2.1
   weather-js: 2.0.0
   wio.db: 4.0.9
@@ -3471,6 +3472,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-0S1fVb9OAZGhkI4ZIc5Oe4yWMwhz20xSsziwd6+yGWKKMsPt+XOfj/gD5CesGxd2WdqBkZFBiP8ZqWDu55HLHA==
+  /random-anime/1.0.6:
+    dev: false
+    resolution:
+      integrity: sha512-wJzg6/51AfVQBZgIPEl0qcaFPacA2vq43o+iAn1AYt7b3i9r7fiIHbhbgFmN8YbzPhODZ91II0Eq8CkjcatBBw==
   /range-parser/1.2.1:
     dev: false
     engines:
@@ -4148,6 +4153,7 @@ specifiers:
   passport: ^0.4.1
   passport-oauth2: ^1.5.0
   quick.db: ^7.1.2
+  random-anime: ^1.0.6
   simple-youtube-api: ^5.2.1
   weather-js: ^2.0.0
   wio.db: ^4.0.9

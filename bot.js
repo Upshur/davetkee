@@ -52,6 +52,62 @@ fs.readdir('./komutlar/', (err, files) => {
     });
 });
 
+////karaliste
+
+client.on("guildMemberAdd", member => {
+  if(require('quick.db').has(`karaliste_${member.guild.id}.${member.user.id}`)){
+    member.send({embed: {color: "BLACK", description: `Karalistede bulunduğun için seni ${member.guild.name} isimli sunucudan banladım.`}})
+    var banned = member.guild.members.cache.get(member.user.id)
+    member.guild.owner.send({embed: {color: "BLACK", description: `${member.user.id} ID'li kişi sunucunuza katıldı! Karalistede olduğu için sunucudan banlandı!`}})
+    banned.ban()
+  }
+})
+
+
+///ototag
+
+client.on("guildMemberAdd", member => {
+  var tag = require('quick.db').fetch(`ototag_${member.guild.id}`)
+  if(!tag) return;
+  member.setNickname(`${tag}${member.user.username}`)
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -134,9 +190,3 @@ client.login(ayarlar.token).then(
   }
 );
 
-///ototag
-client.on("guildMemberAdd", member => {
-  var tag = require('quick.db').fetch(`ototag_${member.guild.id}`)
-  if(!tag) return;
-  member.setNickname(`${tag}${member.user.username}`)
-  })

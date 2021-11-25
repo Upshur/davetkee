@@ -1,15 +1,13 @@
 ﻿const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
-exports.run = async (client, message, args) => {
-   const filter = (reaction, user) => {
-  return ["➕","💡"].includes(reaction.emoji.name) && user.id === message.author.id && reaction.users.remove(message.author.id);
+exports.run = async (client, message, args) => {"📀,"💡"].includes(reaction.emoji.name) && user.id === message.author.id && reaction.users.remove(message.author.id);
 };
 
   const yardım = new Discord.MessageEmbed()
     .setTitle(`${message.author.username} - Tarafından İstendi`)
       .setColor("GREEN")
   .setAuthor(client.user.username, client.user.avatarURL())
-  .setDescription(`**Davet Komutları: ➕ \n Ana Menü: 💡** \n Selamlar, bu bot PYTHONIC tarafından paylaşıldı. Lütfen abone ol, iyi kullanmalar :D`)
+  .setDescription(`**Davet Komutları: ➕ \n Ana Menü: 💡** \n`)
   .setImage("https://images-ext-1.discordapp.net/external/Bb032GyJs8yCJiUy7tWQ-YnNRPreLuPDo-xp66eOIeU/https/images-ext-2.discordapp.net/external/H1PQhcDr-EaEvwENT8cUxj8S2yonFZl351YbXXH5sGs/https/media.discordapp.net/attachments/697145772801785876/716671769355747348/1.gif")
  var menü = await message.channel.send(yardım)
  const collector = menü.createReactionCollector(filter, { time: 99999 });
