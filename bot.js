@@ -252,10 +252,49 @@ client.on("guildMemberAdd", member => {
   member.setNickname(`${tag}${member.user.username}`)
   })
 
+///seste
+
+client.on("ready", () => {
+  client.channels.cache.get('907723361336049725').join();//Hangi Ses Kanalın Gircekse o ses kanalının id sini gir
+  });
 
 
+///güvenlik
 
-
+client.on('guildMemberAdd',async member => {
+    let user = client.users.cache.get(member.id);
+    let kanal = client.channels.cache.get(db.fetch(`guvenlik${member.guild.id}`)) 
+         const Canvas = require('canvas')
+         const canvas = Canvas.createCanvas(360,100);
+         const ctx = canvas.getContext('2d');
+    
+    const resim1 = await Canvas.loadImage('https://cdn.discordapp.com/attachments/591299755976425493/614151181752860672/yhosgeldirrn.png')
+      const resim2 = await Canvas.loadImage('https://cdn.discordapp.com/attachments/591299755976425493/614164419768877056/yhosgeldirrn.png')
+      const kurulus = new Date().getTime() - user.createdAt.getTime();
+      const gün = moment(kurulus).format('dddd');  
+      var kontrol;
+        if (kurulus > 2629800000) kontrol = resim2
+      if (kurulus < 2629800000) kontrol = resim1
+  
+  
+       const background = await Canvas.loadImage( "https://cdn.discordapp.com/attachments/591299755976425493/614164413318168606/Adsz.png");
+         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+     
+  
+    const avatar = await Canvas.loadImage(member.user.displayAvatarURL({format: "png"}));
+    ctx.drawImage(kontrol,0,0,canvas.width, canvas.height)
+    ctx.beginPath();
+      ctx.lineWidth = 4;
+    ctx.fill()
+      ctx.lineWidth = 4;
+    ctx.arc(180, 46, 36, 0, 2 * Math.PI);
+      ctx.clip();
+    ctx.drawImage(avatar, 143,10, 73, 72  );
+  
+     if (!kanal) return
+         const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'güvenlik.png');
+      kanal.send(attachment)
+  });
 
 
 
