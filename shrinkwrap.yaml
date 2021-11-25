@@ -5,6 +5,7 @@ dependencies:
   chalk: 4.1.0
   db: 3.3.0
   discord-bots-api: 0.0.2
+  discord-buttons: 4.0.0
   discord-tts: 1.2.1
   discord.js: 12.4.1
   express: 4.17.1
@@ -2294,6 +2295,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-WjHyqa284MJDf1jTuf53h0Ze/+E=
+  /discord-buttons/4.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-E/eQX4Ktj7nKwNDsTfCezBNCu73FtPWJfQcpKohfl0jct/ucMUO+7uhL2MhGsZr4SCfojk7OzccAznuntB564w==
   /discord-tts/1.2.1:
     dependencies:
       google-tts-api: 2.0.2
@@ -4164,6 +4169,7 @@ specifiers:
   chalk: ^4.1.0
   db: ^3.3.0
   discord-bots-api: ^0.0.2
+  discord-buttons: ^4.0.0
   discord-tts: ^1.2.1
   discord.js: ^12.4.0
   express: ^4.17.1

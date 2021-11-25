@@ -91,6 +91,279 @@ client.load = command => {
 };
 
 
+///modlog
+
+client.on("channelCreate", async channel => {
+  var sunucuidsi = channel.guild.id;
+  let kontrol = await db.fetch(`denetimkaydi_${sunucuidsi}`);
+  if(!kontrol) return;
+  channel.guild.fetchAuditLogs().then(logs => { 
+    let kanaliacan = logs.entries.first().executor;
+  
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`${channel.guild.name} Sunucunuzda Bir Kanal Kuruldu!`)
+  .setDescription(`
+**Kanalı Açan ve ID'si: ${kanaliacan} ve ${kanaliacan.id}**
+
+**Kanal İsmi ve ID'si: ${channel.name} ve ${channel.id}**
+  `)
+  .setFooter("The Artist")
+  channel.guild.owner.send(embed)
+  });
+});
+
+client.on("channelDelete", async channel => {
+  var sunucuidsi = channel.guild.id;
+  let kontrol = await db.fetch(`denetimkaydi_${sunucuidsi}`);
+  if(!kontrol) return;
+  channel.guild.fetchAuditLogs().then(logs => { 
+    let kanalisilen = logs.entries.first().executor;
+  
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`${channel.guild.name} Sunucunuzda Bir Kanal Silindi!`)
+  .setDescription(`
+**Kanalı Silen ve ID'si: ${kanalisilen} ve ${kanalisilen.id}**
+
+**Kanal İsmi ve ID'si: ${channel.name} ve ${channel.id}**
+  `)
+  .setFooter("The Artist")
+  channel.guild.owner.send(embed)
+  });
+});
+
+client.on("roleCreate", async role => {
+  var sunucuidsi = role.guild.id;
+  let kontrol = await db.fetch(`denetimkaydi_${sunucuidsi}`);
+  if(!kontrol) return;
+  role.guild.fetchAuditLogs().then(logs => { 
+    let rolukuran = logs.entries.first().executor;
+  
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`${role.guild.name} Sunucunuzda Bir Rol Kuruldu!`)
+  .setDescription(`
+**Rolü Kuran ve ID'si: ${rolukuran} ve ${rolukuran.id}**
+
+**Rol ID'si: ${role.id}**
+  `)
+  .setFooter("The Artist")
+  role.guild.owner.send(embed)
+  });
+});
+
+client.on("roleDelete", async role => {
+  var sunucuidsi = role.guild.id;
+  let kontrol = await db.fetch(`denetimkaydi_${sunucuidsi}`);
+  if(!kontrol) return;
+  role.guild.fetchAuditLogs().then(logs => { 
+    let rolusilen = logs.entries.first().executor;
+  
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`${role.guild.name} Sunucunuzda Bir Rol Silindi!`)
+  .setDescription(`
+**Rolü Silen ve ID'si: ${rolusilen} ve ${rolusilen.id}**
+
+**Silinmeden Önce Rolün İsmi: ${role.name}**
+  `)
+  .setFooter("The Artist")
+  role.guild.owner.send(embed)
+  });
+});
+
+client.on("guildBanAdd", async (guild, user) => {
+  var sunucuidsi = guild.id;
+  let kontrol = await db.fetch(`denetimkaydi_${sunucuidsi}`);
+  if(!kontrol) return;
+  guild.fetchAuditLogs().then(logs => { 
+    let banlayan = logs.entries.first().executor;
+  
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`${guild.name} Sunucunuzda Biri Banlandı!`)
+  .setDescription(`
+**Banlayan ve ID'si: ${banlayan} ve ${banlayan.id}**
+
+**Banlanan İsmi ve ID'si: ${user.tag} ve ${user.id}**
+  `)
+  .setFooter("The Artist")
+  guild.owner.send(embed)
+  });
+});
+
+client.on("guildBanRemove", async (guild, user) => {
+  var sunucuidsi = guild.id;
+  let kontrol = await db.fetch(`denetimkaydi_${sunucuidsi}`);
+  if(!kontrol) return;
+  guild.fetchAuditLogs().then(logs => { 
+    let bankaldiran = logs.entries.first().executor;
+  
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`${guild.name} Sunucunuzda Birinin Banı Kaldırıldı!`)
+  .setDescription(`
+**Banı Kaldıran ve ID'si: ${bankaldiran} ve ${bankaldiran.id}**
+
+**Banı Kaldırılanın İsmi ve ID'si: ${user.tag} ve ${user.id}**
+  `)
+  .setFooter("The Artist")
+  guild.owner.send(embed)
+  });
+});
+
+client.on("channelPinsUpdate", async message => {
+  var sunucuidsi = message.guild.id;
+  let kontrol = await db.fetch(`denetimkaydi_${sunucuidsi}`);
+  if(!kontrol) return;
+  message.guild.fetchAuditLogs().then(logs => { 
+    let pinduzenleyen = logs.entries.first().executor;
+  
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`${message.guild.name} Sunucunuzda Biri Sabitlenenlerle Oynadı!`)
+  .setDescription(`
+**Mesaj Sabitlemelerini Düzenleyen ve ID'si: ${pinduzenleyen} ve ${pinduzenleyen.id}**
+  `)
+  .setFooter("The Artist")
+  message.guild.owner.send(embed)
+  });
+});
+
+client.on("emojiCreate", async emoji => {
+  var sunucuidsi = emoji.guild.id;
+  let kontrol = await db.fetch(`denetimkaydi_${sunucuidsi}`);
+  if(!kontrol) return;
+  emoji.guild.fetchAuditLogs().then(logs => { 
+    let emojiekleyen = logs.entries.first().executor;
+  
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`${emoji.guild.name} Sunucunuzda Biri Emoji Ekledi!`)
+  .setDescription(`
+**Emoji Ekleyen ve ID'si: ${emojiekleyen} ve ${emojiekleyen.id}**
+
+**Emoji İsmi ve ID'si: ${emoji.name} ve ${emoji.id}**
+  `)
+  .setFooter("The Artist")
+  emoji.guild.owner.send(embed)
+  });
+});
+
+
+///ototag
+
+client.on("guildMemberAdd", member => {
+  var tag = require('quick.db').fetch(`ototag_${member.guild.id}`)
+  if(!tag) return;
+  member.setNickname(`${tag}${member.user.username}`)
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 client.unload = command => {
@@ -134,9 +407,3 @@ client.login(ayarlar.token).then(
   }
 );
 
-///ototag
-client.on("guildMemberAdd", member => {
-  var tag = require('quick.db').fetch(`ototag_${member.guild.id}`)
-  if(!tag) return;
-  member.setNickname(`${tag}${member.user.username}`)
-  })

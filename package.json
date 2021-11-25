@@ -35,7 +35,8 @@
     "wio.db": "^4.0.9",
     "ytdl-core": "^4.0.2",
     "random-anime": "^1.0.6",
-    "discord-tts": "^1.2.1"
+    "discord-tts": "^1.2.1",
+    "discord-buttons": "^4.0.0"
   },
   "engines": {
     "node": "12.x"
