@@ -34,7 +34,8 @@
     "weather-js": "^2.0.0",
     "wio.db": "^4.0.9",
     "ytdl-core": "^4.0.2",
-    "random-anime": "^1.0.6"
+    "random-anime": "^1.0.6",
+    "discord-tts": "^1.2.1"
   },
   "engines": {
     "node": "12.x"

@@ -5,6 +5,7 @@ dependencies:
   chalk: 4.1.0
   db: 3.3.0
   discord-bots-api: 0.0.2
+  discord-tts: 1.2.1
   discord.js: 12.4.1
   express: 4.17.1
   fs: 0.0.2
@@ -610,6 +611,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
+  /axios/0.21.4:
+    dependencies:
+      follow-redirects: 1.14.5
+    dev: false
+    resolution:
+      integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
   /bad-words/3.0.3:
     dependencies:
       badwords-list: 1.0.0
@@ -2287,6 +2294,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-WjHyqa284MJDf1jTuf53h0Ze/+E=
+  /discord-tts/1.2.1:
+    dependencies:
+      google-tts-api: 2.0.2
+    dev: false
+    resolution:
+      integrity: sha512-eBGuaaDArAEjGLD1bRADShJWwtmL/PX90TExmjCntOYK80CVAY7v9X2BDlsGpzNL8o1gtlCKBXCZ1PQXaSPGNA==
   /discord.js/12.4.1:
     dependencies:
       '@discordjs/collection': 0.1.6
@@ -2513,6 +2526,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-aAWcW57uxVNrQZqFXjITpW3sIUQmHGG3qSb9mUah9MgMC4NeWhNOlNjXEYq3HjRAvL6arUviZGGJsBg6z0zsWA==
+  /follow-redirects/1.14.5:
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha512-wtphSXy7d4/OR+MvIFbCVBDzZ5520qV8XfPklSN5QtxuMUJZ+b0Wnst1e1lCDocfzuCkHqj8k0FpZqO+UIaKNA==
   /forever-agent/0.6.1:
     dev: false
     resolution:
@@ -2633,6 +2652,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-52mJJopsdMOJCLEwWxD8DjlOnQ8=
+  /google-tts-api/2.0.2:
+    dependencies:
+      axios: 0.21.4
+    dev: false
+    resolution:
+      integrity: sha512-MkQYbBJEdom8hJpfEVDfD3tpBtkz0X59C+FNsoRhbnCiFjZRnzyurGQ5OrAr3xkigII56/jmk0JNwZsp450G+Q==
   /google/2.1.0:
     dependencies:
       cheerio: 0.19.0
@@ -4139,6 +4164,7 @@ specifiers:
   chalk: ^4.1.0
   db: ^3.3.0
   discord-bots-api: ^0.0.2
+  discord-tts: ^1.2.1
   discord.js: ^12.4.0
   express: ^4.17.1
   fs: ^0.0.2
