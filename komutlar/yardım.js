@@ -23,7 +23,7 @@ collector.on('collect', (reaction, user) => {
      if(reaction.emoji.name == "⚔️") {
     const kobscode = new Discord.MessageEmbed()
       .setColor("BLUE")
- .addField("**Yardım Komutları**", `\n**e+**rütbe-ekle @rol davet = **Rütbe Ekler** \n**e+**rütbeler = **Rütbeleri Gösterir 1 Den 10'a Kadar** \n**e+**rütbe-sıfırla = **Rütbeyi Sıfırlar.** \n**e+**davetleri-sıfırla = **Davetleri Sıfırlar.** \n**e+**top = **Lider Tablosunu Gösterir.** \n**e+**davetlerim = **Davetlerinizi Gösterir.** \n**e+**bonus-ekle = **Bonus Ekler.** \n**e+**davet-kanal #kanal = **Davet Kanalını Ayarlar.** \n**e+**davet-kanal-sıfırla = **Davet Kanalını Sıfırlar.** \n**e+**sunucupp = **sunucu resmini atar.** \n**e+**ototag = **ototag ayarlarsınız** \n**e+**anime = **anime fotoğraf atar** \n**e+**rütbe-ekle @rol davet = **Rütbe Ekler**`)
+ .addField("**Yardım Komutları**", `\n**e+**rütbe-ekle @rol davet = **Rütbe Ekler** \n**e+**rütbeler = **Rütbeleri Gösterir 1 Den 10'a Kadar** \n**e+**rütbe-sıfırla = **Rütbeyi Sıfırlar.** \n**e+**davetleri-sıfırla = **Davetleri Sıfırlar.** \n**e+**top = **Lider Tablosunu Gösterir.** \n**e+**davetlerim = **Davetlerinizi Gösterir.** \n**e+**bonus-ekle = **Bonus Ekler.** \n**e+**davet-kanal #kanal = **Davet Kanalını Ayarlar.** \n**e+**davet-kanal-sıfırla = **Davet Kanalını Sıfırlar.** \n**e+**sunucupp = **sunucu resmini atar.** \n**e+**ototag = **ototag ayarlarsınız** \n**e+**anime = **anime fotoğraf atar** \n**e+**say = **say komutu**`)
 .setImage("https://cdn.discordapp.com/attachments/772883062085386282/775006230082748436/3.png")
   .setThumbnail(client.user.avatarURL())
  menü.edit(kobscode)
